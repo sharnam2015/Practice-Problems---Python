@@ -1,0 +1,59 @@
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the minimumBribes function below.
+def minimumBribes(q):
+    l = len(q)
+    c=0
+    s =[]
+    f=0
+    cont = True
+    count = 0
+    """
+    for j in range(l):
+        s.insert(j,j+1)
+    for k in range(l-1):
+        if(q[k]>q[k+1]):
+            count=count+1
+
+    for j in range(0,count+1):
+        for i in range(l-1):
+            if(q[i]<q[i+1]):
+                f=0
+            elif(q[i]>q[i+1] and f<3):
+                temp = q[i]
+                q[i]=q[i+1]
+                q[i+1]=temp
+                f = f+1
+                if(f>2):
+                    print "Too chaotic"
+                    return
+                c=c+1
+            #if(q==s):
+            #    print c
+            #    return
+    #print "Too chaotic"
+    print c
+    """
+    b = dict()
+    r =0
+    while cont:
+        cont = False
+        for i in xrange(n-1):
+            if q[i] > q[i+1]:
+                if not q[i] in b:
+                    b[q[i]] = 0
+                b[q[i]] += 1
+                if b[q[i]] > 2:
+                    cont = False
+                    r = "Too chaotic"
+                    break
+                q[i], q[i+1] = q[i+1], q[i]
+                r += 1
+                cont = True
+    print r
+
+    return
