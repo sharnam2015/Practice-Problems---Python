@@ -1,0 +1,40 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the countingValleys function below.
+def countingValleys(n, s):
+    count = 0;
+    flag = 0;
+    op = 0;
+    r = s.strip()
+    for x in r:
+        if(x=='U'):
+            count = count+1
+        else:
+            count = count-1
+        if(flag==0 and count==-1):
+            op = op+1
+        if(count==0):
+            flag = 0
+        else:
+            flag = 1
+    return op
+
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    s = input()
+
+    result = countingValleys(n, s)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
